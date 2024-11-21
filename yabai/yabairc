@@ -1,0 +1,60 @@
+#!/usr/bin/env sh
+
+# load scripting additions
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+yabai -m config window_placement first_child
+
+# padding set to 8px
+yabai -m config top_padding    8
+yabai -m config bottom_padding 8
+yabai -m config left_padding   8
+yabai -m config right_padding  8
+yabai -m config window_gap     8
+
+# -- mouse settings --
+yabai -m config mouse_follows_focus off
+yabai -m config focus_follows_mouse off
+
+# modifier for clicking and dragging with mouse
+yabai -m config mouse_modifier alt
+# set modifier + left-click drag to move window
+yabai -m config mouse_action1 move
+# set modifier + right-click drag to resize window
+yabai -m config mouse_action2 resize
+
+# disable specific apps
+yabai -m rule --add app="^Stickies$" manage=off
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Music" manage=off
+yabai -m rule --add app="^IINA" manage=off
+yabai -m rule --add app="^Bitwarden" manage=off
+yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^QuickTime Player$" manage=off
+yabai -m rule --add app="^Raycast$" manage=off
+yabai -m rule --add app="^FaceTime" manage=off
+yabai -m rule --add app="^Digital Color Meter" manage=off
+yabai -m rule --add app="^Calendar$" manage=off
+
+# default layout
+yabai -m config layout bsp
+
+# default space layout
+yabai -m config --space 1 layout stack
+yabai -m config --space 2 layout bsp
+yabai -m config --space 3 layout stack
+yabai -m config --space 4 layout bsp
+yabai -m config --space 5 layout float
+
+# space names
+yabai -m space 1 --label Surf
+yabai -m space 2 --label Term
+yabai -m space 3 --label Chat
+yabai -m space 4 --label Code
+yabai -m space 5 --label Game
+
+# window settings
+yabai -m config window_animation_duration 0.0
+yabai -m config window_shadow float
+yabai -m config window_opacity off
