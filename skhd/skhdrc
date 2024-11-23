@@ -77,3 +77,5 @@ alt - s : yabai -m space --layout stack
 
 shift + alt - s : yabai -m window --toggle sticky
 
+shift + alt - c : shortcuts run "copy to clipboard"
+shift + alt - a : shortcuts run "ask chatgpt"
