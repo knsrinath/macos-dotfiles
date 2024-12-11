@@ -1,30 +1,36 @@
 local wezterm = require 'wezterm'
+local mux = wezterm.mux
 local config = {}
+
+wezterm.on('gui-startup', function(cmd)
+  local window = mux.spawn_window(cmd or {})
+  window:gui_window():maximize()
+end)
 
 if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
 config = {
-  window_decorations = "RESIZE",
+  window_decorations = "RESIZE | MACOS_FORCE_DISABLE_SHADOW",
 
-  color_scheme = 'tokyonight_night',
+  color_scheme = 'Ayu Dark (Gogh)',
 
   font = wezterm.font('FantasqueSansM Nerd Font', { weight = 'Regular' }),
-  font_size = 16.0,
+  font_size = 15.0,
 
   window_background_opacity = 1,
-  macos_window_background_blur = 40,
+  macos_window_background_blur = 100,
 
   default_cursor_style = 'BlinkingUnderline',
 
   colors = {
     tab_bar = {
-      background = '#1a1b26',
+      background = '#0D1017',
 
       active_tab = {
-        bg_color = '#7aa2f7',
-        fg_color = '#1a1b26',
+        bg_color = '#73B8FF',
+        fg_color = '#0D1017',
         intensity = 'Normal',
         underline = 'None',
         italic = false,
@@ -32,24 +38,24 @@ config = {
       },
 
       inactive_tab = {
-        bg_color = '#414868',
-        fg_color = '#a9b1d6',
+        bg_color = '#131721',
+        fg_color = '#BFBDB6',
       },
 
       inactive_tab_hover = {
-        bg_color = '#414868',
-        fg_color = '#c0caf5',
+        bg_color = '#131721',
+        fg_color = '#BFBDB6',
         italic = false,
       },
 
       new_tab = {
-        bg_color = '#565f89',
-        fg_color = '#c0caf5',
+        bg_color = '#565B66',
+        fg_color = '#BFBDB6',
       },
 
       new_tab_hover = {
-        bg_color = '#565f89',
-        fg_color = '#c0caf5',
+        bg_color = '#565B66',
+        fg_color = '#BFBDB6',
         italic = false,
       },
     },
@@ -68,8 +74,8 @@ config = {
     { key = 'l', mods = 'ALT', action = wezterm.action.ShowLauncher },
   },
 
-  initial_rows = 48,
-  initial_cols = 180,
+  initial_rows = 150,
+  initial_cols = 200,
 
   enable_scroll_bar = false,
 

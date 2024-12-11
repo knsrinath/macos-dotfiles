@@ -7,6 +7,12 @@ alias la 'eza -a --icons=auto'
 alias ll 'eza -al --icons=auto'
 alias du 'dust'
 alias python 'python3'
+alias ff 'fastfetch'
+
+if test "$TERM" = "xterm-kitty"
+    alias ssh="kitty +kitten ssh"
+end
+
 
 export MANPAGER='nvim +Man!'
 
